@@ -15,7 +15,7 @@ app.use(router);
 
 const hf = new HfInference(process.env.TOKEN);
 
-router.post("/", async (req, res) => {
+router.post("/api/translate", async (req, res) => {
     try {
         const { imageUrl } = req.body;
         

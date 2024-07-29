@@ -7,10 +7,10 @@ import fetch from "node-fetch"; // Añadido para el uso de fetch en Node.js
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Proporciona un valor por defecto si PORT no está definido
+const PORT = process.env.PORT || 3000; 
 const router = Router();
 
-app.use(express.json()); // Asegúrate de usar esto antes de tus rutas
+app.use(express.json());
 app.use(router);
 
 const hf = new HfInference(process.env.TOKEN);
@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
        
        const response= await fetch(imageUrl);
        const blob = await response.blob()
-        
+       
         const result = await hf.imageToText({
             data: blob, 
             model: "Salesforce/blip-image-captioning-large"
